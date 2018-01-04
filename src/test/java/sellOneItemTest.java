@@ -29,6 +29,8 @@ public class sellOneItemTest {
     }
 
 
+
+
     @Test
     @Ignore
     public void faultyBarcodePrizeDisplayTest() {

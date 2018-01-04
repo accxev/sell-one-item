@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class BarcodeHandler {
 
     private String scannedBarcode;
@@ -5,6 +7,15 @@ public class BarcodeHandler {
 
 
 
+    public BarcodeHandler() {
+        // just some dummy items
+        HashMap barcodeToItemMap = new HashMap<Integer, Item>();
+        barcodeToItemMap.put(123, new Item("Lollipop", 2.50));
+        barcodeToItemMap.put(-1, new Item("Not in the system", 0.00));
+        barcodeToItemMap.put(111, new Item("Candy Cane", 1.50));
+
+
+    }
 
 
     public void onBarcode(String scannedBarcode) {
