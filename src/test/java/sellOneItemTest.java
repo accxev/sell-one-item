@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 
 public class sellOneItemTest {
 
-    // TODO barcode should probably be an int or Barcode at some point
-
     @Test
     public void barcodeGetsReadCorrectlyTest() {
         BarcodeHandler barcodeHandler = new BarcodeHandler();
@@ -32,12 +30,11 @@ public class sellOneItemTest {
 
 
     @Test
-    @Ignore
     public void faultyBarcodePrizeDisplayTest() {
         BarcodeHandler barcodeHandler = new BarcodeHandler();
         barcodeHandler.onBarcode("abc");
 
-        assertEquals("This item is not in the system", barcodeHandler.getLastDisplayedText());
+        assertEquals("This item is not in the system.", barcodeHandler.getLastDisplayedText());
     }
 
     @Test

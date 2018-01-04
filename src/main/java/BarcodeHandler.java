@@ -21,8 +21,7 @@ public class BarcodeHandler {
     public void onBarcode(String scannedBarcode) {
         if (scannedBarcode.matches("\\d+")) {
             this.scannedBarcode = scannedBarcode;
-            int barcode = Integer.parseInt(scannedBarcode);
-            this.intBarcode = barcode;
+            this.intBarcode = Integer.parseInt(scannedBarcode);
         }
         else {
             this.scannedBarcode = scannedBarcode;
@@ -34,7 +33,7 @@ public class BarcodeHandler {
     public String getLastDisplayedText() {
         if (scannedBarcode.equals("123")) return "$2.50";
         if (scannedBarcode.equals("111")) return "$1.12";
-        return "";
+        return "This item is not in the system.";
     }
 
     public String getScannedBarcode() {
