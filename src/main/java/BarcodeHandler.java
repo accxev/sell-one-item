@@ -8,7 +8,7 @@ public class BarcodeHandler {
 
 
     public void onBarcode(String scannedBarcode) {
-        if (scannedBarcode.matches("-?\\d+")) {
+        if (scannedBarcode.matches("\\d+")) {
             this.scannedBarcode = scannedBarcode;
             int barcode = Integer.parseInt(scannedBarcode);
             this.intBarcode = barcode;

@@ -21,6 +21,13 @@ public class sellOneItemTest {
         assertEquals(barcodeHandler.getIntBarcode(), -1);
     }
 
+    @Test
+    public void catchFaultyNegativeBarcodeTest() {
+        BarcodeHandler barcodeHandler = new BarcodeHandler();
+        barcodeHandler.onBarcode("-123");
+        assertEquals(barcodeHandler.getIntBarcode(), -1);
+    }
+
 
     @Test
     @Ignore
