@@ -6,10 +6,11 @@ import static org.junit.Assert.assertEquals;
 public class sellOneItemTest {
 
     @Test
+    // as there is no internal variable that stores the bar code anymore, we test for the output message
     public void barcodeGetsReadCorrectlyTest() {
         BarcodeHandler barcodeHandler = new BarcodeHandler();
         barcodeHandler.onBarcode("678");
-        assertEquals(barcodeHandler.getScannedBarcode(), "678");
+        assertEquals("$12.00", barcodeHandler.getLastDisplayedText());
     }
 
     @Test
