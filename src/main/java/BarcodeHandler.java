@@ -41,5 +41,5 @@ public class BarcodeHandler {
     public String getLastDisplayedText() {
         return lastDisplayedText;
     }
-    
+
 }
