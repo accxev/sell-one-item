@@ -5,16 +5,14 @@ public class BarcodeHandler {
 
     private String scannedBarcode;
     private int intBarcode;
-    public HashMap<Integer, Item> barcodeToItemMap = new HashMap<Integer, Item>();
+    private HashMap<Integer, Item> barcodeToItemMap = new HashMap<Integer, Item>();
     private String lastDisplayedText;
-    private Item item;
 
 
     public BarcodeHandler() {
         // just some dummy items
-        //HashMap barcodeToItemMap = new HashMap<Integer, Item>();
         barcodeToItemMap.put(123, new Item("Lollipop", new BigDecimal("2.50")));
-        barcodeToItemMap.put(-1, new Item("Not in the system", new BigDecimal("0.00")));
+        //barcodeToItemMap.put(-1, new Item("Not in the system", new BigDecimal("0.00")));
         barcodeToItemMap.put(111, new Item("Candy Cane", new BigDecimal("1.50")));
         barcodeToItemMap.put(666, new Item("Black candles", new BigDecimal("6.66")));
         barcodeToItemMap.put(678, new Item("Box of cookies", new BigDecimal("12.00")));
@@ -33,13 +31,17 @@ public class BarcodeHandler {
             this.intBarcode = -1;
         }
 
-        item = barcodeToItemMap.get(intBarcode);
-        lastDisplayedText = item.displayPrize();
+        if (barcodeToItemMap.containsKey(intBarcode)) {
+            Item item = barcodeToItemMap.get(intBarcode);   // What happens if the item is not in the Hashmap?
+            lastDisplayedText = item.displayPrize();
+        }
+        else {
+            lastDisplayedText = "Not in the system";
+        }
 
     }
 
     public String getLastDisplayedText() {
-        //barcodeToItemMap.get()
         if (scannedBarcode.equals("123")) return "$2.50";
         if (scannedBarcode.equals("111")) return "$1.12";
         if (intBarcode==-1) return "This item is not in the system.";
