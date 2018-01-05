@@ -27,8 +27,6 @@ public class sellOneItemTest {
     }
 
 
-
-
     @Test
     public void faultyBarcodePrizeDisplayTest() {
         BarcodeHandler barcodeHandler = new BarcodeHandler();
@@ -38,20 +36,26 @@ public class sellOneItemTest {
     }
 
     @Test
-    public void fullDataFlowTest() {
+    public void inputOutputTest() {
 
         BarcodeHandler barcodeHandler = new BarcodeHandler();
         barcodeHandler.onBarcode("123");
 
         assertEquals("$2.50", barcodeHandler.getLastDisplayedText());
-
     }
 
     @Test
-    public void fullDataFlowTestSecondItem() {
+    public void InputOutputTestSecondItem() {
 
         BarcodeHandler barcodeHandler = new BarcodeHandler();
         barcodeHandler.onBarcode("111");
         assertEquals("$1.12", barcodeHandler.getLastDisplayedText());
+    }
+
+    @Test
+    public void InputOutputTestThirdItem() {
+        BarcodeHandler barcodeHandler = new BarcodeHandler();
+        barcodeHandler.onBarcode("666");
+        assertEquals("$6.66", barcodeHandler.getLastDisplayedText());
     }
 }
