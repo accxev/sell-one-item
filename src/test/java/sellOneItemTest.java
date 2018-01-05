@@ -13,19 +13,17 @@ public class sellOneItemTest {
     }
 
     @Test
-    @Ignore
     public void catchFaultyBarcodeTest() {
         BarcodeHandler barcodeHandler = new BarcodeHandler();
         barcodeHandler.onBarcode("abc");
-        //assertEquals(-1, barcodeHandler.getIntBarcode());
+        assertEquals("This item is not in the system.", barcodeHandler.getLastDisplayedText());
     }
 
     @Test
-    @Ignore
     public void catchFaultyNegativeBarcodeTest() {
         BarcodeHandler barcodeHandler = new BarcodeHandler();
         barcodeHandler.onBarcode("-123");
-        //assertEquals(-1, barcodeHandler.getIntBarcode());
+        assertEquals("This item is not in the system.", barcodeHandler.getLastDisplayedText());
     }
 
 

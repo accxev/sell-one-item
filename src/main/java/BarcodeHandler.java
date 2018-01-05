@@ -12,7 +12,6 @@ public class BarcodeHandler {
     public BarcodeHandler() {
         // just some dummy items
         barcodeToItemMap.put(123, new Item("Lollipop", new BigDecimal("2.50")));
-        //barcodeToItemMap.put(-1, new Item("Not in the system", new BigDecimal("0.00")));
         barcodeToItemMap.put(111, new Item("Candy Cane", new BigDecimal("1.12")));
         barcodeToItemMap.put(666, new Item("Black candles", new BigDecimal("6.66")));
         barcodeToItemMap.put(678, new Item("Box of cookies", new BigDecimal("12.00")));
@@ -23,19 +22,21 @@ public class BarcodeHandler {
 
     public void onBarcode(String scannedBarcode) {
         int intBarcode = -1;
-        if (scannedBarcode.matches("\\d+")) {
+
+        if (scannedBarcode.matches("\\d+") && barcodeToItemMap.containsKey(Integer.parseInt(scannedBarcode))) {
+            this.scannedBarcode = scannedBarcode;
+            intBarcode = Integer.parseInt(scannedBarcode);
+            Item item = barcodeToItemMap.get(intBarcode);
+            lastDisplayedText = item.displayPrize();
+        }
+        /*if (scannedBarcode.matches("\\d+")) {
             this.scannedBarcode = scannedBarcode;
             intBarcode = Integer.parseInt(scannedBarcode);
         }
-        else {
-            this.scannedBarcode = scannedBarcode;
-            intBarcode = -1;
-        }
-
         if (barcodeToItemMap.containsKey(intBarcode)) {
-            Item item = barcodeToItemMap.get(intBarcode);   // What happens if the item is not in the Hashmap?
+            Item item = barcodeToItemMap.get(intBarcode);
             lastDisplayedText = item.displayPrize();
-        }
+        }*/
         else {
             lastDisplayedText = "This item is not in the system.";
         }
