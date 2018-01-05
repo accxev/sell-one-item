@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class BarcodeHandler {
@@ -12,11 +13,11 @@ public class BarcodeHandler {
     public BarcodeHandler() {
         // just some dummy items
         //HashMap barcodeToItemMap = new HashMap<Integer, Item>();
-        barcodeToItemMap.put(123, new Item("Lollipop", 2.50));
-        barcodeToItemMap.put(-1, new Item("Not in the system", 0.00));
-        barcodeToItemMap.put(111, new Item("Candy Cane", 1.50));
-        barcodeToItemMap.put(666, new Item("Black candles", 6.66));
-        barcodeToItemMap.put(678, new Item("Box of cookies", 12.00));
+        barcodeToItemMap.put(123, new Item("Lollipop", new BigDecimal("2.50")));
+        barcodeToItemMap.put(-1, new Item("Not in the system", new BigDecimal("0.00")));
+        barcodeToItemMap.put(111, new Item("Candy Cane", new BigDecimal("1.50")));
+        barcodeToItemMap.put(666, new Item("Black candles", new BigDecimal("6.66")));
+        barcodeToItemMap.put(678, new Item("Box of cookies", new BigDecimal("12.00")));
 
 
     }
